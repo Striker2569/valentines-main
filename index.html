@@ -130,26 +130,27 @@
       </div>
     </div>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script>
-function PlayMusic() {
-
-  var play=document.getElementById("music");
-  play.play();
-}
-
-$(document).ready(function(){
-  setTimeout(PlayMusic,3000);
-})
-
-</script>
+  <audio id="music">
+    <source src="img/valentines.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    function PlayMusic() {
+      var play = document.getElementById("music");
+      play.play().catch(error => console.log("Autoplay blocked:", error)); 
+    }
+  
+    document.addEventListener("click", function() {
+      PlayMusic();
+    }, { once: true }); // Ensures it runs only once
+  </script>
 </head>
 <body>
-
+<!-- 
 <audio controls id="music" >
 
-  <source src="img/shape-of-you.mp3" type="audio/mpeg">
-</audio>
+  <source src="img/valentines.mp3" type="audio/mpeg">
+</audio> -->
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   <script type="text/babel" src="script/main.js"></script>
